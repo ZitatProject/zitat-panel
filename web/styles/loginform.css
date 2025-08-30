@@ -1,0 +1,794 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0f1221;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* 隐藏Chrome、Safari和Opera的滚动条 */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.background .circle {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    animation: float 15s infinite ease-in-out;
+    filter: blur(40px);
+}
+
+.background .circle:nth-child(1) {
+    width: 600px;
+    height: 600px;
+    top: -300px;
+    left: -100px;
+    opacity: 0.3;
+    animation-delay: 0s;
+}
+
+.background .circle:nth-child(2) {
+    width: 400px;
+    height: 400px;
+    bottom: -200px;
+    right: -100px;
+    opacity: 0.4;
+    animation-delay: 2s;
+}
+
+.background .circle:nth-child(3) {
+    width: 200px;
+    height: 200px;
+    top: 50%;
+    left: 70%;
+    opacity: 0.5;
+    animation-delay: 4s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-50px) rotate(10deg);
+    }
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 40px;
+    margin: 20px;
+    background: rgba(15, 18, 33, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.login-container:hover {
+    box-shadow: 0 15px 35px rgba(106, 17, 203, 0.4);
+    transform: translateY(-5px);
+}
+
+.logo {
+    display: block;
+    margin: 0 auto 5px;
+    max-width: 120px;
+    height: auto;
+}
+
+.login-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #fff;
+    font-size: 28px;
+    letter-spacing: 1px;
+    background: linear-gradient(90deg, #6a11cb, #2575fc);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 12px 20px;
+    padding-left: 45px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    outline: none;
+    border-color: #6a11cb;
+    box-shadow: 0 0 15px rgba(106, 17, 203, 0.3);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.input-group select {
+    cursor: pointer;
+    padding-left: 15px;
+}
+
+.input-group select option {
+    background-color: #0f1221;
+    color: #fff;
+}
+
+.input-group .icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 20px;
+}
+
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.remember-forgot label {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.remember-forgot label input {
+    margin-right: 8px;
+    accent-color: #6a11cb;
+}
+
+.remember-forgot a {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.remember-forgot a:hover {
+    color: #6a11cb;
+}
+
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(90deg, #6a11cb, #2575fc);
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-login:hover {
+    background: linear-gradient(45deg, #5a0dc8, #1a65e8);
+    transform: translateY(-2px);
+}
+
+.btn-action:hover {
+    transform: translateY(-2px);
+}
+
+/* 初始化密码按钮样式 */
+.btn-set-password {
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+/* 模态框样式 */
+.modal {
+    display: none; /* 默认隐藏 */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background: rgba(15, 18, 33, 0.95);
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: modalFadeIn 0.3s;
+}
+
+@keyframes modalFadeIn {
+    from {opacity: 0; transform: translateY(-50px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+.close-btn {
+    color: rgba(255, 255, 255, 0.7);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #6a11cb;
+}
+
+.modal-content h3 {
+    color: #fff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* 控制台表单样式 */
+.form-container {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+    width: 400px;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-container h3 {
+    color: #fff;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    resize: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #6a11cb;
+    box-shadow: 0 0 15px rgba(106, 17, 203, 0.3);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.form-group select {
+    cursor: pointer;
+}
+
+.form-group select option {
+    background-color: #0f1221;
+    color: #fff;
+}
+
+.btn-add {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(90deg, #6a11cb, #2575fc);
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 15px;
+}
+
+.btn-add:hover {
+    background: linear-gradient(45deg, #5a0dc8, #1a65e8);
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}
+
+.message {
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 15px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.message.success {
+    background: rgba(0, 255, 0, 0.1);
+    border: 1px solid rgba(0, 255, 0, 0.3);
+    color: #00ff00;
+}
+
+.message.error {
+    background: rgba(255, 0, 0, 0.1);
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    color: #ff0000;
+}
+
+/* 句子管理页面样式 */
+.sentence-list {
+    margin-top: 20px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+.sentence-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+.sentence-item:hover {
+    border-color: #6a11cb;
+    transform: translateY(-2px);
+}
+.sentence-content {
+    color: #fff;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+.sentence-meta {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+}
+.sentence-actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+.btn-action {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+.btn-edit {
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    color: white;
+}
+.btn-delete {
+    background: linear-gradient(45deg, #ff416c, #ff4b2b);
+    color: white;
+}
+.btn-back {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.btn-back:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #6a11cb;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.btn-set-password:hover {
+    background: linear-gradient(45deg, #5a0dc8, #1a65e8);
+    transform: translateY(-2px);
+}
+
+.btn-login::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150%;
+    height: 150%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translate(-50%, -50%) rotate(45deg);
+    transition: all 0.6s ease;
+}
+
+.btn-login:hover::after {
+    width: 0;
+    height: 0;
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 20px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+}
+
+.register-link a {
+    color: #6a11cb;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.register-link a:hover {
+    color: #2575fc;
+}
+
+/* 模态框样式 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: rgba(15, 18, 33, 0.95);
+    backdrop-filter: blur(20px);
+    margin: 5% auto;
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.close-btn {
+    color: rgba(255, 255, 255, 0.7);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #fff;
+}
+
+.modal-content h3 {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.modal-content .input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.modal-content .input-group label {
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.modal-content .input-group input,
+.modal-content .input-group select,
+.modal-content .input-group textarea {
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.modal-content .input-group textarea {
+    resize: vertical;
+    min-height: 100px;
+    font-family: inherit;
+    line-height: 1.4;
+}
+
+.modal-content .input-group input:focus,
+.modal-content .input-group select:focus,
+.modal-content .input-group textarea:focus {
+    outline: none;
+    border-color: #6a11cb;
+    box-shadow: 0 0 15px rgba(106, 17, 203, 0.3);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.sentence-list {
+    margin-bottom: 20px;
+}
+
+.sentence-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+.sentence-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(106, 17, 203, 0.3);
+}
+
+.sentence-content {
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.sentence-meta {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sentence-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-small {
+    padding: 5px 10px;
+    font-size: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-edit {
+    background: linear-gradient(90deg, #6a11cb, #2575fc);
+    color: #fff;
+}
+
+.btn-delete {
+    background: rgba(255, 59, 48, 0.8);
+    color: #fff;
+}
+
+.btn-small:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.message {
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    padding: 20px;
+}
+
+.btn-back {
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-back:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+#login-verification-code{
+    width: 50%;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+#login-verification-code:focus{
+    outline: none;
+    border-color: #6a11cb;
+    box-shadow: 0 0 15px rgba(106, 17, 203, 0.3);
+    background: rgba(255, 255, 255, 0.08);
+}
+#login-verification-code::placeholder{
+    color: rgba(255, 255, 255, 0.5);
+}
+#verification-code{
+    width: 20px;
+}
+.verification-btn {
+    white-space: nowrap;
+    padding: 10px 15px;
+    min-width: 100px;
+    max-width: 120px;
+    font-size: 14px;
+}
+
+.verification-container { margin-bottom: 15px; }
+.verification-container label { display: block; margin-bottom: 5px; color: rgba(255, 255, 255, 0.7); }
+.verification-input-group { display: flex; gap: 10px; align-items: center; }
+.verification-input-group input { 
+    flex: 1; 
+    max-width: 180px; 
+    padding: 12px 20px; 
+    background: rgba(255, 255, 255, 0.05); 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    border-radius: 8px; 
+    color: #fff; 
+    font-size: 16px; 
+    transition: all 0.3s ease; 
+    box-sizing: border-box; 
+}
+.verification-btn { 
+    white-space: nowrap; 
+    padding: 12px 20px; 
+    min-width: 90px; 
+    font-size: 14px; 
+    flex-shrink: 0;
+}
+
+.tabs { display: flex; margin-bottom: 20px; gap: 10px; }
+.form-wrapper { position: relative; height: auto; min-height: 300px; }
+.tab-btn { flex: 1; padding: 10px; border: none; background: rgba(255, 255, 255, 0.1); cursor: pointer; border-radius: 8px; color: rgba(255, 255, 255, 0.7); transition: all 0.3s ease; }
+.tab-btn.active { background: linear-gradient(90deg, #6a11cb, #2575fc); color: white; }
+.form-container {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    position: relative;
+    width: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: auto;
+}
+
+/* 为登录/注册表单的特殊样式 */
+#login-form.form-container,
+#register-form.form-container {
+    opacity: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+#login-form.form-container.active,
+#register-form.form-container.active {
+    opacity: 1;
+    position: relative;
+    pointer-events: auto;
+}
+.form-group { margin-bottom: 15px; }
+.form-group label { display: block; margin-bottom: 5px; color: rgba(255, 255, 255, 0.7); }
+.form-group input { 
+    width: 100%; 
+    padding: 12px 20px; 
+    background: rgba(255, 255, 255, 0.05); 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    border-radius: 8px; 
+    color: #fff; 
+    font-size: 16px; 
+    transition: all 0.3s ease; 
+    box-sizing: border-box; 
+}
+.form-group input:focus { 
+    outline: none; 
+    border-color: #6a11cb; 
+    box-shadow: 0 0 15px rgba(106, 17, 203, 0.3); 
+    background: rgba(255, 255, 255, 0.08); 
+}
+.form-group input::placeholder { 
+    color: rgba(255, 255, 255, 0.5); 
+}
+/* AI写的自动显示登陆邮箱太丑了，我来加个样式awa */
+.user-info{
+    text-align: center;
+    background: linear-gradient(45deg, #5a0dc8, #1a65e8);
+    border-radius: 8px;
+    width: 100%;
+    padding: 4px;
+    color: white;
+}
+
+@media (max-width: 500px) {
+    .login-container {
+        width: 90%;
+        padding: 30px 20px;
+    }
+}
