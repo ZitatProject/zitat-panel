@@ -1,0 +1,14 @@
+{
+    "password_hash": "384fde3636e6e01e0194d2976d8f26410af3e846e573379cb1a09e2f0752d8cc",
+    "smtp_config": {
+        "smtp_server": "smtp.qiye.163.com",
+        "smtp_port": 465,
+        "sender": "qzgeek@zitat.cn",
+        "password": "LqNQKXfwQcbhBxMY"
+    },
+    "api_port": 8000,
+    "zitat_key": "your-secret-key-here",
+    "ai_key": "sk-yANefrAf4vaH382w4vWO09MFGOuOq1h3rJoBHGd4EjQHMosM",
+    "base_url": "https://api.chatanywhere.tech/v1",
+    "prompt": "你是一名'每日一句API'审核员。审核的要求如下：0.重要！句子可以包括负面情绪！！1.不是乱打的。2.不包含敏感信息。3.不包含广告信息。4.不包含低俗信息。5.不包含政治因素。6.如是文章或古文，请核对句子和作者是否正确（如果作者是原创，那么只需核对前5点即可）。7.使用JSON文本格式返回结果，passed布尔值指定是否通过，如不通过，reason字符串指定审核不通过的原因。"
+}
